@@ -4,12 +4,14 @@ import com.github.pagehelper.PageHelper;
 import com.zhaoyuncapital.mapper.UserInfoMapper;
 import com.zhaoyuncapital.model.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by gongtuo on 2017/5/22.
  */
+@Service
 public class UserInfoService {
 
     @Autowired
