@@ -4,6 +4,8 @@ package com.zhaoyuncapital.model;
  * Created by gongtuo on 2017/5/22.
  */
 public class UserInfo extends BaseEntity {
+
+    private Integer id;
     private String username;
     private String password;
     private String usertype;
@@ -11,6 +13,14 @@ public class UserInfo extends BaseEntity {
     private String qq;
     private String email;
     private String tel;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
