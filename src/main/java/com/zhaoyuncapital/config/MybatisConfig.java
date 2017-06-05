@@ -1,49 +1,54 @@
 package com.zhaoyuncapital.config;
 
 
-import lombok.extern.slf4j.Slf4j;
+import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
-import javax.annotation.ManagedBean;
 import javax.sql.DataSource;
+import java.util.Properties;
 
 /**
  * Created by gongtuo on 2017/6/2.
  */
 @Configuration
-@Slf4j
 @EnableTransactionManagement
-@ComponentScan
-@ManagedBean("com.zhaoyuncapital.mapper")
-public class MybatisConfig {
-    @Value("${spring.datasource.type}")
-    private Class<? extends DataSource> dataSourceType;
+public class MybatisConfig implements TransactionManagementConfigurer {
 
-    @Bean(name="dataSource",destroyMethod = "close",initMethod = "init")
-    @ConfigurationProperties(prefix = "spring.datasource")
-    public DataSource dataSource(){
-      //  log.info("-------------------- writeDataSource init ---------------------");
+    @Autowired
+    DataSource dataSource;
 
-        return DataSourceBuilder.create().type(dataSourceType).build();
-    }
 
-    @Bean
+
+    @Bean(name = "sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory()throws Exception{
         SqlSessionFactoryBean sqlSessionFactoryBean=new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSource());
+        sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setTypeAliasesPackage("com.zhaoyuncapital.model");
+
+        //分页插件
+        PageHelper pageHelper=new PageHelper();
+        Properties properties=new Properties();
+        properties.setProperty("reasonable", "true");
+        properties.setProperty("supportMethodsArguments", "true");
+        properties.setProperty("returnPageInfo", "check");
+        properties.setProperty("params", "count=countSql");
+        pageHelper.setProperties(properties);
+        //添加插件
+        //sqlSessionFactoryBean.setPlugins(new Interceptor[]{pageHelper});
+
+        //添加XML目录
+
         PathMatchingResourcePatternResolver resolver=new PathMatchingResourcePatternResolver();
         sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mapper/*.xml"));
         sqlSessionFactoryBean.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
@@ -53,10 +58,13 @@ public class MybatisConfig {
     配置事物管理器
      */
     @Bean(name="transactionManager")
-    @Primary
-    public DataSourceTransactionManager transactionManager(@Qualifier("dataSource") DataSource dataSource)throws Exception{
+    public DataSourceTransactionManager transactionManager()throws Exception{
         return new DataSourceTransactionManager(dataSource);
 
     }
-
+    @Bean(name="annotationDrivenTransactionManager")
+    @Override
+    public PlatformTransactionManager annotationDrivenTransactionManager() {
+        return new DataSourceTransactionManager(dataSource);
+    }
 }

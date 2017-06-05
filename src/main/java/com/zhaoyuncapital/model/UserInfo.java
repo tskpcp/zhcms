@@ -5,7 +5,6 @@ package com.zhaoyuncapital.model;
  */
 public class UserInfo extends BaseEntity {
 
-    private Integer id;
     private String username;
     private String password;
     private String usertype;
@@ -14,13 +13,6 @@ public class UserInfo extends BaseEntity {
     private String email;
     private String tel;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
