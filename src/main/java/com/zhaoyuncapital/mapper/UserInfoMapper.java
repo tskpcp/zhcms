@@ -1,6 +1,6 @@
 package com.zhaoyuncapital.mapper;
 
-import com.zhaoyuncapital.model.UserInfo;
+import com.zhaoyuncapital.model.domain.UserInfo;
 import com.zhaoyuncapital.util.MyMapper;
 
 /**

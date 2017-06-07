@@ -2,7 +2,7 @@ package com.zhaoyuncapital.service;
 
 import com.github.pagehelper.PageHelper;
 import com.zhaoyuncapital.mapper.CityMapper;
-import com.zhaoyuncapital.model.City;
+import com.zhaoyuncapital.model.domain.City;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

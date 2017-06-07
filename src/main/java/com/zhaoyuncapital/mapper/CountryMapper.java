@@ -1,6 +1,6 @@
 package com.zhaoyuncapital.mapper;
 
-        import com.zhaoyuncapital.model.Country;
+        import com.zhaoyuncapital.model.domain.Country;
         import com.zhaoyuncapital.util.MyMapper;
 
 /**

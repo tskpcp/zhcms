@@ -1,4 +1,6 @@
-package com.zhaoyuncapital.model;
+package com.zhaoyuncapital.model.domain;
+
+import com.zhaoyuncapital.model.BaseEntity;
 
 /**
  * Created by gongtuo on 2017/5/22.

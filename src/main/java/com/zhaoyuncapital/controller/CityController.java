@@ -1,7 +1,7 @@
 package com.zhaoyuncapital.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.zhaoyuncapital.model.City;
+import com.zhaoyuncapital.model.domain.City;
 import com.zhaoyuncapital.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;

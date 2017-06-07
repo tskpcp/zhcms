@@ -1,6 +1,6 @@
 package com.zhaoyuncapital.mapper;
 
-import com.zhaoyuncapital.model.City;
+import com.zhaoyuncapital.model.domain.City;
 import com.zhaoyuncapital.util.MyMapper;
 
 /**

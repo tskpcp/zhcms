@@ -1,7 +1,7 @@
 package com.zhaoyuncapital.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.zhaoyuncapital.model.UserInfo;
+import com.zhaoyuncapital.model.domain.UserInfo;
 import com.zhaoyuncapital.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;

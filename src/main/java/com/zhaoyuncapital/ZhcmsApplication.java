@@ -25,10 +25,6 @@ public class ZhcmsApplication {
 	String home(){
 		return "redirect:countries";
 	}
-	@RequestMapping("/hello")
-	String hello() {
-		return "Hello World!";
-	}
 
 	@RequestMapping("/now")
 	String hehe() {

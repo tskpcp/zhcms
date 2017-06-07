@@ -1,7 +1,7 @@
 package com.zhaoyuncapital.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.zhaoyuncapital.model.Country;
+import com.zhaoyuncapital.model.domain.Country;
 import com.zhaoyuncapital.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +26,7 @@ public class CountryController {
     public ModelAndView getAll(Country country){
         ModelAndView result=new ModelAndView("index");
         List<Country> countryList=countryService.getAll(country);
+        System.out.println("size"+countryList.size());
         result.addObject("pageinfo",new PageInfo<Country>(countryList));
         result.addObject("queryParam",country);
         result.addObject("page",country.getPage());

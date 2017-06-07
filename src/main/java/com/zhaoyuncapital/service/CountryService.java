@@ -2,7 +2,7 @@ package com.zhaoyuncapital.service;
 
 import com.github.pagehelper.PageHelper;
 import com.zhaoyuncapital.mapper.CountryMapper;
-import com.zhaoyuncapital.model.Country;
+import com.zhaoyuncapital.model.domain.Country;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +17,7 @@ public class CountryService {
     private CountryMapper countryMapper;
 
     public List<Country> getAll(Country country){
+        System.out.println("getCountrycode"+country.getCountrycode());
         if(country.getPage()!=null && country.getId()!=null){
             PageHelper.startPage(country.getPage(),country.getId());
         }
