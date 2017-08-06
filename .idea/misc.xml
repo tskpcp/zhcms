@@ -3,6 +3,41 @@
   <component name="Archetypes.Configuration">
     <option name="workingDirectory" value="" />
   </component>
+  <component name="JalapenoDev">
+    <option name="mHost" value="localhost" />
+    <option name="mPort" value="1972" />
+    <option name="mUsername" value="_SYSTEM" />
+    <option name="mPassword" value="SYS" />
+    <option name="mNamespace" value="USER" />
+    <option name="mDefaultAccessTypeString" value="properties" />
+    <option name="mDefaultAccessLevelString" value="public" />
+    <option name="mPopulateInstances" value="10" />
+    <option name="mRelationPopulateFactor" value="5" />
+    <option name="mPathToConfig" />
+    <option name="mDeleteOldSchema" value="false" />
+    <option name="mRebuildIndices" value="true" />
+    <option name="mDollarReplacement" value="D" />
+    <option name="mUnderscoreReplacement" value="U" />
+    <option name="mMetadataSourceString" value="annotations" />
+    <option name="mMaxStringLength" value="128" />
+    <option name="mMaxStringLengthInKey" value="64" />
+    <option name="mClassesInShema">
+      <value>
+        <list size="0" />
+      </value>
+    </option>
+    <option name="mClassesInDatabase">
+      <value>
+        <list size="0" />
+      </value>
+    </option>
+    <option name="mIntrospectionExclusions">
+      <value>
+        <list size="0" />
+      </value>
+    </option>
+    <option name="mJPAMode" value="false" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
@@ -12,5 +47,11 @@
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="Struts Navigator">
+    <option name="strutsConfigFile" />
+    <option name="strutsTilesFile" />
+    <option name="strutsValidatorFiles" />
+    <option name="enable" value="false" />
   </component>
 </project>
